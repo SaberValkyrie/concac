@@ -1,0 +1,93 @@
+﻿@model IEnumerable<HealthInsurance.Models.PoliciesEmp>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Policies</h2>
+        </div>
+        <div class="col-md-4">
+            <p>
+                <a asp-action="Create">Create New</a> |
+                <a asp-action="RequestDetails"> Policy Request Detais</a>
+   
+
+            </p>
+        </div>
+    </div>
+
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyStartdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyEnddate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyStartdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyEnddate)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PolicyId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PolicyId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PolicyId">Delete</a>|
+                    <a asp-action="Buy" asp-route-id="@item.PolicyId">Buy Policy</a>|
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
